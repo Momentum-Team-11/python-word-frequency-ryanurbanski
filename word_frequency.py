@@ -1,5 +1,6 @@
 import string
 
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
@@ -12,14 +13,18 @@ def print_word_freq(file):
     the non-'stop words' occur."""
     with open(file) as file:
         lines = file.read()
-        print(lines)                                    # Starting String
     lines = remove_punctuation(lines)                   # Puncuation removed
     lines = lines.lower()                               # Sting 'lower-cased'
     lines = lines.split()                               # String converted into a List of words
     lines = remove_stop_words(lines, STOP_WORDS)        # Stop words removed 
     lines = list_to_dictionary(lines)                   # List converted to Dictionary with word count
     lines = sort_by_count(lines)                        # Dictionary sorted in decending order
-    print(lines)
+    print_dictionary(lines)
+
+
+def print_dictionary (dictToPrint):
+    for word, count in dictToPrint.items():
+        print("{} | {}".format(word.rjust(15," "), count))
 
 
 def sort_by_count(dictToSort):
@@ -48,6 +53,7 @@ def remove_stop_words(list1, list2):
         if word not in list2:
             finalList.append(word)
     return finalList
+
 
 def remove_punctuation(stringWithPunctuation):
     """Removes all punctuation from a string

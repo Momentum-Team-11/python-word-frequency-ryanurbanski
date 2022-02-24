@@ -1,9 +1,10 @@
 import string
 
+# Remember to take out 'long' when done testing!!!!!
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
-    'will', 'with' 
+    'will', 'with', 'long' 
 ]
 
 
@@ -18,6 +19,15 @@ def print_word_freq(file):
     lines = lines.split()                               # String converted into a List of words
     lines = remove_stop_words(lines, STOP_WORDS)        # Stop words removed 
     print(lines)
+    lines = list_to_dictionary(lines)
+    print(lines)
+
+
+def list_to_dictionary(list):
+    """Takes a list and converts it to a dictionary with the list 
+    items as the key and all the initial values set to 0"""
+    dict = {i:0 for i in list}
+    return dict
 
 
 def remove_stop_words(list1, list2):

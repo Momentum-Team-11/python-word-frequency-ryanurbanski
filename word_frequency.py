@@ -24,7 +24,12 @@ def print_word_freq(file):
 
 def print_dictionary (dictToPrint):
     for word, count in dictToPrint.items():
-        print("{} | {}".format(word.rjust(15," "), count))
+        starString = ""
+        j = 0
+        while j < count:
+            starString += "*"
+            j += 1
+        print("{} | {} {}".format(word.rjust(15," "), str(count).ljust(3, " "), starString))
 
 
 def sort_by_count(dictToSort):

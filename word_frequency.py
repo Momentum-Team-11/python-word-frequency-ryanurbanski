@@ -17,7 +17,20 @@ def print_word_freq(file):
     lines = lines.lower()                       # Sting 'lower-cased'
     lines = lines.split()                       # String converted into a List of words
     print(lines)
+    remove_stop_words(lines, ['how', 'long'])
 
+
+def remove_stop_words(list1, list2):
+    """Takes 2 lists as arguments and will return the first list
+    without any elements from list2 """
+    finalList = []
+    for word in list1:
+        if word not in list2:
+            finalList.append(word)
+    print(list1)
+    print(list2)
+    print(finalList)
+    return finalList
 
 def remove_punctuation(stringWithPunctuation):
     """Removes all punctuation from a string

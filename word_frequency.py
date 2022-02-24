@@ -29,9 +29,9 @@ def list_to_dictionary(list):
     dict = {'how': 0}
     for i in list:
         if i in dict:
-            print ('Element is in there')
+            dict[i] += 1
         else:
-            print('Not in there!')
+            dict[i] = 1
     return dict
 
 

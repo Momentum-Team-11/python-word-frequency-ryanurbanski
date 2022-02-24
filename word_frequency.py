@@ -9,21 +9,24 @@ STOP_WORDS = [
 
 def print_word_freq(file):
     """This function takes in a file and will print the frequency that
-    the non-stop words occur."""
+    the non-'stop words' occur."""
     with open(file) as file:
         lines = file.read()
-        print(lines)
-    remove_punctuation(lines)
-    print(remove_punctuation(lines))
+        print(lines)                            # Starting String
+    lines = remove_punctuation(lines)           # Puncuation removed
+    lines = lines.lower()                       # Sting 'lower-cased'
+    print(lines)
+
 
 def remove_punctuation(stringWithPunctuation):
-    """Removes all punctuation from a string"""
+    """Removes all punctuation from a string
+    and returns another string."""
     punctuation_list = string.punctuation
-    print(punctuation_list)
     for char in stringWithPunctuation:
         if char in punctuation_list:
             stringWithPunctuation = stringWithPunctuation.replace(char, "")
     return stringWithPunctuation
+
 
 if __name__ == "__main__":
     import argparse

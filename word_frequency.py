@@ -1,10 +1,9 @@
 import string
 
-# Remember to take out 'long' when done testing!!!!!
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
-    'will', 'with', 'long' 
+    'will', 'with' 
 ]
 
 
@@ -18,15 +17,21 @@ def print_word_freq(file):
     lines = lines.lower()                               # Sting 'lower-cased'
     lines = lines.split()                               # String converted into a List of words
     lines = remove_stop_words(lines, STOP_WORDS)        # Stop words removed 
+    lines = list_to_dictionary(lines)                   # List converted to Dictionary with word count
+    lines = sort_by_count(lines)                        # Dictionary sorted in decending order
     print(lines)
-    lines = list_to_dictionary(lines)
-    print(lines)
+
+
+def sort_by_count(dictToSort):
+    """Sorts a dictionary in descending order of the values for each key"""
+    sorted_dict = dict(sorted(dictToSort.items(), key=lambda item: item[1], reverse=True))
+    return sorted_dict
 
 
 def list_to_dictionary(list):
     """Takes a list and converts it to a dictionary with the list 
     items as the key and all the initial values set to 0"""
-    dict = {'how': 0}
+    dict = {}
     for i in list:
         if i in dict:
             dict[i] += 1

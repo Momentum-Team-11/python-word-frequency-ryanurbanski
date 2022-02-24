@@ -26,7 +26,12 @@ def print_word_freq(file):
 def list_to_dictionary(list):
     """Takes a list and converts it to a dictionary with the list 
     items as the key and all the initial values set to 0"""
-    dict = {i:0 for i in list}
+    dict = {'how': 0}
+    for i in list:
+        if i in dict:
+            print ('Element is in there')
+        else:
+            print('Not in there!')
     return dict
 
 

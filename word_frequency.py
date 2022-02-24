@@ -15,6 +15,7 @@ def print_word_freq(file):
         print(lines)                            # Starting String
     lines = remove_punctuation(lines)           # Puncuation removed
     lines = lines.lower()                       # Sting 'lower-cased'
+    lines = lines.split()                       # String converted into a List of words
     print(lines)
 
 

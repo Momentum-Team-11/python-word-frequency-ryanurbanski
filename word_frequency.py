@@ -12,17 +12,18 @@ def print_word_freq(file):
     the non-stop words occur."""
     with open(file) as file:
         lines = file.read()
-        print(type(lines))
         print(lines)
     remove_punctuation(lines)
-
+    print(remove_punctuation(lines))
 
 def remove_punctuation(stringWithPunctuation):
     """Removes all punctuation from a string"""
     punctuation_list = string.punctuation
     print(punctuation_list)
     for char in stringWithPunctuation:
-
+        if char in punctuation_list:
+            stringWithPunctuation = stringWithPunctuation.replace(char, "")
+    return stringWithPunctuation
 
 if __name__ == "__main__":
     import argparse
